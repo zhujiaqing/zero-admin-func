@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>功能后台</title>
+		<!-- 外部引用
+    <link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> // support IE8
+    <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		-->
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+		<script src="/jquery/jquery.min.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/utils/base.js"></script>
+    <link rel="stylesheet" href="/videojs/video-js.css">
+    <script src="/videojs/videojs-ie8.min.js"></script>
+    <script src="/videojs/video.js"></script>
+	</head>
+	<body>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>自动发视频至Feed <small id="small-header">可发送的</small></h1></div>
+  <div class="panel-body">
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    可发送 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu type">
+    <li><a class="nav-likeCount" href="?likeCount">按喜欢量</a></li>
+    <li><a href="?commentCount">按评论量</a></li>
+  </ul>
+</div>
+<div class="btn-group">
+   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    已挑选 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu status">
+    <li><a href="?1">待发送</a></li>
+    <li><a href="?2">发送完成</a></li>
+    <li><a href="?3">发送失败</a></li>
+    <li><a href="?4">已经淘汰</a></li>
+  </ul>
+</div>
+
+  </div>
+
+<div class="video-tip"></div>
+<div class="row">
+</div>
+
+</div>
+
+
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#">9</a></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#">13</a></li>
+    <li><a href="#">14</a></li>
+    <li><a href="#">15</a></li>
+    <li><a href="#">16</a></li>
+    <li><a href="#">17</a></li>
+    <li><a href="#">18</a></li>
+    <li><a href="#">19</a></li>
+    <li><a href="#">20</a></li>
+    <li>
+      <a href="#" class="page next" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+	</body>
+</html>
