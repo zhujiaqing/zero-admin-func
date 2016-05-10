@@ -13,7 +13,9 @@ class login:
     def POST(self):
         res = {'ret':0}
         print web.cookies()
-        web.setcookie("name", "jesse", 20, None, None, None, "/")
-        return json.dumps(res)
+        i = web.input()
+        web.setcookie("loginusr", i.get("loginusr", ""), 30, None, None, None, "/")
+#         return json.dumps(res)
+        raise web.seeother("/")
     
     
