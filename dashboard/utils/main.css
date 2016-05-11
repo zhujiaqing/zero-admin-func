@@ -1,18 +1,9 @@
-
-#func-tip{
-	margin: 20px 20px 20px 20px;
+.func{
+	margin: 10px 20px 20px 20px;
 }
 
-#func-view{
-	margin: 20px 0 20px 20px;
-}
-
-.uploadFile{
-	margin: 20px 20px 20px 20px;
+.func-border{
 	width: 500px;
 	border: 1px solid;
 }
 
-.uploadFile div{
-	margin: 20px 20px 20px 20px;
-}

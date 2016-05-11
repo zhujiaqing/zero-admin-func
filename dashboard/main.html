@@ -22,6 +22,8 @@
   <ul class="dropdown-menu">
     <li><a href="?path=file-upload">上传文件</a></li>
     <li><a href="?path=file-clean-cache">清缓存</a></li>
+    <li><a href="?path=file-preview">文件预览</a></li>
+    <li><a href="?path=file-delete">删除文件</a></li>
   </ul>
 </div>
 
@@ -45,8 +47,51 @@
 
   </div>
 
-<div id="func-tip"></div>
-<div id="func-view"></div>
+<div id="func-tip" class="func"></div>
+<div id="func-view">
+
+  <!-- 文件上传 -->
+  <div id="func-file-upload" class="func">
+    <div class="func-border">
+      <form method="POST" id="uploadFile" enctype="multipart/form-data" action="/zero_admin/mfs/upload">
+        <div class="input-group func"><span class="input-group-addon" id="basic-addon1">文件路径</span><input type="text" name="path" class="form-control" placeholder="/upload/2016/05/10/upload.png，为空系统随机" /></div>
+        <div class="input-group func"><span class="input-group-addon" id="basic-addon1">本地文件</span><input type="file" name="uploadFile" class="form-control" /></div>
+        <p align="center" class="func"><input type="submit" value="上传" /></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 清缓存 -->
+  <div id="func-file-clean-cache" class="func">
+    <div class="func-border">
+      <textarea class="func" rows="5" cols="50" class="form-control" placeholder="换行区分多个"></textarea>
+      <p class="func" align="center">
+        <button type="submit">清缓存</button>
+      </p>
+    </div>
+  </div>
+
+  <!-- 文件预览 -->
+  <div id="func-file-preview" class="func">
+    文件预览 
+  </div>
+
+  <!-- 删除文件 -->
+  <div id="func-file-delete" class="func">
+    删除文件 
+  </div>
+  
+  <!-- 用户最后登录IP -->
+  <div id="func-last-login-ip" class="func">
+    用户最后登录IP
+  </div>
+
+  <!-- 协议加解密 -->
+  <div id="func-api-encrypt" class="func">
+    协议加解密
+  </div>
+
+</div>
 
 </div>
 

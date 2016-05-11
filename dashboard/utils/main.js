@@ -25,37 +25,11 @@ $(document).ready(function(){
 	var activeRequire=window.location["search"];
 	$('ul.dropdown-menu a[href="'+activeRequire+'"]').parent().addClass('active');
 
-	var html='';
-	switch(activeRequire){
-		case "?path=file-upload":
-			html+='<div class="uploadFile">';
-			html+='<form method="POST" id="uploadFile" enctype="multipart/form-data" action="/zero_admin/mfs/upload">';
-			html+='<div class="input-group"><span class="input-group-addon" id="basic-addon1">文件路径</span><input type="text" name="path" class="form-control" placeholder="/upload/2016/05/10/upload.png，为空系统随机" /></div>';
-			html+='<div class="input-group"><span class="input-group-addon" id="basic-addon1">本地文件</span><input type="file" name="uploadFile" class="form-control" /></div>';
-			html+='<div><input type="submit" class="form-control" value="上传" /><div>';
-			html+='</form></div>';
-			break;
-		case "?path=file-clean-cache":
-			html+='清缓存';
-			break;
-		case "?path=last-login-ip":
-			html+='最后登录IP';
-			break;
-		case "?path=api-encrypt":
-			html+='协议加解密';
-			break;
-	}
-	$("#func-view").html(html);
+	$("#func-view").children("div").hide();
+	$("#func-"+activeRequire.split("=")[1]).show();
 
-	// 其它
-	$("#func-view #uploadFile").submit(function(){
-		// console.log($(this).children('input[name="path"]').val());
-		// return false;
-
-		// if(""==$(this).children('input[name="uploadFile"]').val()){
-		// 	tip("warning","没有选择本地文件");
-		// 	return false;
-		// }
+	// 文件上传
+	$("#uploadFile").submit(function(){
 		$.ajax({
 		    url: "/zero_admin/mfs/upload",
 		    type: "POST",
@@ -63,16 +37,17 @@ $(document).ready(function(){
 		    data: new FormData($(this)[0]),
 		    processData: false,
 		    contentType: false,
-		    // dataType: "josn",
+		    dataType: "json",
 		    success: function(res){
 				if(0==res.ret){
 					var message=res.info;
 					message+="，CDN访问的地址列表：<br/><ul>";
-					$.each(res.addr,function(i,item){
-						message+='<li>'+item+'<a target="_blank" href="'+item+'">&nbsp;点击</a></li>';
+					$.each(res.addrs,function(i,addr){
+						message+='<li>'+addr+'<a target="_blank" href="'+addr+'">&nbsp;点击</a></li>';
 					});
 					message+="</ul>"
 					tip("success",message);
+					$("func-file-upload input").val("");
 				}else{
 					tip("warning",res.info);
 				}
@@ -81,6 +56,32 @@ $(document).ready(function(){
 		});
 
 		return false;
+	});
+
+	// 清缓存
+	$("#func-file-clean-cache button").on("click",function(){
+		$.ajax({
+		    url: "/zero_admin/mfs/clean_cache",
+		    type: "POST",
+		    data: {
+		    	"keys":$("#func-file-clean-cache textarea").val(),
+		    },
+		    dataType: "json",
+		    success: function(res){
+				if(0==res.ret){
+					var message="清除成功，已经清除的地址列表：<br/><ul>";
+					$.each(res.keys,function(i,key){
+						message+='<li>'+key+'</li>';
+					});
+					message+="</ul>"
+					tip("success",message);
+					$("func-file-clean-cache textarea").val("");
+				}else{
+					tip("warning",res.info);
+				}
+			},
+			error: function(){}
+		});
 	});
 
 });

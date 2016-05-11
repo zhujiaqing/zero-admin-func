@@ -12,3 +12,6 @@ MONGO_HOST = 'master.mongo.youja.cn'
 MONGO_PORT = 27017
 MONGO_DB_NAME = 'ops'
 
+# mogilefs 
+MOGILEFS_HOST = 'http://fs.uplus.youja.cn'
+
