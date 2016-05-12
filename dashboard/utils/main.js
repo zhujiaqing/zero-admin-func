@@ -29,7 +29,7 @@ $(document).ready(function(){
 	$("#func-"+activeRequire.split("=")[1]).show();
 
 	// 文件上传
-	$("#uploadFile").submit(function(){
+	$("#func-file-upload form").submit(function(){
 		$.ajax({
 		    url: "/zero_admin/mfs/upload",
 		    type: "POST",
@@ -46,20 +46,22 @@ $(document).ready(function(){
 						message+='<li>'+addr+'<a target="_blank" href="'+addr+'">&nbsp;点击</a></li>';
 					});
 					message+="</ul>"
+
 					tip("success",message);
-					$("func-file-upload input").val("");
+					$('#func-file-upload input[type="text"]').val("");
+					$('#func-file-upload input[type="file"]').val("");
 				}else{
 					tip("warning",res.info);
 				}
 			},
 			error: function(){}
 		});
-
 		return false;
 	});
 
 	// 清缓存
-	$("#func-file-clean-cache button").on("click",function(){
+	$("#func-file-clean-cache form").submit(function(){
+		console.log("Ok")
 		$.ajax({
 		    url: "/zero_admin/mfs/clean_cache",
 		    type: "POST",
@@ -74,14 +76,16 @@ $(document).ready(function(){
 						message+='<li>'+key+'</li>';
 					});
 					message+="</ul>"
+
 					tip("success",message);
-					$("func-file-clean-cache textarea").val("");
+					$("#func-file-clean-cache textarea").val("");
 				}else{
 					tip("warning",res.info);
 				}
 			},
 			error: function(){}
 		});
+		return false;
 	});
 
 });

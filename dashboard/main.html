@@ -62,10 +62,21 @@
   <!-- 文件上传 -->
   <div id="func-file-upload" class="func">
     <div class="func-border">
-      <form method="POST" id="uploadFile" enctype="multipart/form-data" action="/zero_admin/mfs/upload">
-        <div class="input-group func"><span class="input-group-addon" id="basic-addon1">文件路径</span><input type="text" name="path" class="form-control" placeholder="/upload/2016/05/10/upload.png，为空系统随机" /></div>
-        <div class="input-group func"><span class="input-group-addon" id="basic-addon1">本地文件</span><input type="file" name="uploadFile" class="form-control" /></div>
-        <p align="center" class="func"><input type="submit" value="上传" /></p>
+      <form method="POST">
+        <div class="input-group func">
+          <span class="input-group-addon" id="basic-addon1">文件路径</span>
+          <input type="text" name="path" class="form-control" placeholder="/upload/2016/05/10/upload.png，为空系统生成"  
+pattern="/([a-zA-Z0-9]+/)+([a-zA-Z0-9])+\.(js|css|md|txt|png|jpg|gif|jpeg|zip|gz)" 
+title="请输入一个合法的下载地址：
+/([a-zA-Z0-9]+/)+([a-zA-Z0-9])+\.(js|css|md|txt|png|jpg|gif|jpeg|zip|gz)"/>
+        </div>
+        <div class="input-group func">
+          <span class="input-group-addon" id="basic-addon1">本地文件</span>
+          <input type="file" name="uploadFile" class="form-control" required/>
+        </div>
+        <p align="center" class="func">
+          <input type="submit" value="上传" />
+        </p>
       </form>
     </div>
   </div>
@@ -73,10 +84,23 @@
   <!-- 清缓存 -->
   <div id="func-file-clean-cache" class="func">
     <div class="func-border">
-      <textarea class="func" rows="5" cols="50" class="form-control" placeholder="换行区分多个"></textarea>
-      <p class="func" align="center">
-        <button type="submit">清缓存</button>
-      </p>
+      <form>
+        <textarea class="func" rows="6" cols="60" class="form-control" 
+placeholder="换行区分多个URL
+http://yj.cdndown.youja.cn/get/test.txt
+http://ws.cdndown.youja.cn/get/test.txt
+http://al.cdndown.youja.cn/get/test.txt"
+required></textarea>
+        <p class="func-checkbox">
+          友加<input type="checkbox" name="yj">
+          网宿<input type="checkbox" name="ws">
+          又拍<input type="checkbox" name="yp">
+          阿里<input type="checkbox" name="al">
+        </p>
+        <p class="func" align="center">
+          <input type="submit" value="清缓存" />
+        </p>
+      </form>
     </div>
   </div>
 
