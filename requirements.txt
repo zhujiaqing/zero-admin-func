@@ -1,0 +1,4 @@
+pymogile
+redis
+MySQL-python
+pymongo
