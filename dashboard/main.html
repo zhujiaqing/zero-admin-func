@@ -13,7 +13,8 @@
 
 <div class="panel panel-default">
   <div class="panel-heading"><h1>功能后台 <small id="small-header">自助操作</small></h1></div>
-  <div class="panel-body">
+  
+<div class="panel-body">
 
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,6 +40,16 @@
 
 <div class="btn-group">
    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    释放Redis <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="?path=release-message">消息</a></li>
+    <li><a href="?path=release-zhuji">足迹</a></li>
+  </ul>
+</div>
+
+<div class="btn-group">
+   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     其它功能 <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -46,16 +57,7 @@
   </ul>
 </div>
 
-<div class="btn-group">
-   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    消息 <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="?path=message-release-space">释放空间</a></li>
-  </ul>
 </div>
-
-  </div>
 
 <!-- 显示区域 -->
 <div id="func-tip" class="func"></div>
@@ -64,7 +66,7 @@
   <!-- 文件上传 -->
   <div id="func-file-upload" class="func">
     <div class="func-border">
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         <div class="input-group func">
           <span class="input-group-addon" id="basic-addon1">文件路径</span>
           <input type="text" name="path" class="form-control" placeholder="/upload/2016/05/10/upload.png，为空系统生成"  
@@ -74,7 +76,7 @@ title="请输入一个合法的下载地址：
         </div>
         <div class="input-group func">
           <span class="input-group-addon" id="basic-addon1">本地文件</span>
-          <input type="file" name="uploadFile" class="form-control" required/>
+          <input type="file" name="myfile" class="form-control" required/>
         </div>
         <p align="center" class="func">
           <input type="submit" value="上传" />
@@ -119,6 +121,16 @@ required></textarea>
   <!-- 用户最后登录IP -->
   <div id="func-last-login-ip" class="func">
     用户最后登录IP
+  </div>
+
+  <!-- 消息 -->
+  <div id="func-release-message" class="func">
+    消息
+  </div>
+
+  <!-- 足迹 -->
+  <div id="func-release-zhuji" class="func">
+    足迹
   </div>
 
   <!-- 协议加解密 -->

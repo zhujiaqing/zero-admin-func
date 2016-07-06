@@ -18,7 +18,7 @@ class upload:
             file_path = web.input().get('path')
             file_path.replace(' ', '')
             
-            upload = web.input(uploadFile={})['uploadFile']
+            upload = web.input(myfile={})['myfile']
             file_name = upload.filename
             
             if 0 == len(file_name) or 0 == len(upload.file.read()):raise Exception
@@ -27,7 +27,12 @@ class upload:
                 file_path = '/upload/' + time.strftime('%y/%m/%d/%H/%M/%S/') + file_name
             file_path = str(file_path)
             
-            status = file_mogilefs_service.upload(file_path, upload.file.read())
+            print '-',len(upload.file.read())
+            x=web.input(myfile={})
+            print 'A',len(x['myfile'].file.read())
+            
+#             status = file_mogilefs_service.upload(file_path, upload.file.read())
+            status=0
             
             if status != 0:
                 res['ret'] = 1

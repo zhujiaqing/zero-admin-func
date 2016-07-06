@@ -13,6 +13,7 @@ from config import config  # @UnresolvedImport
 
 def upload(path, data):
     status = 0
+    print 'B',len(data)
     http = httplib2.Http()
     resp, content = http.request(# @UnusedVariable
         '%s/put%s' % (config.MOGILEFS_HOST, path),

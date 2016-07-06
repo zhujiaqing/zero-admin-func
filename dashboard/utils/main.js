@@ -30,11 +30,22 @@ $(document).ready(function(){
 
 	// 文件上传
 	$("#func-file-upload form").submit(function(){
+
+		// console.log($(this))
+		// console.log($(this)[0])
+		// console.log(new FormData($(this)[0]))
+
+
+		var formData=new FormData();
+		formData.append("myfile",$('#func-file-upload input[name="myfile"]'))
+		console.log(fromData)
+		return false
+
 		$.ajax({
 		    url: "/zero_admin/mfs/upload",
 		    type: "POST",
 		    cache: false,
-		    data: new FormData($(this)[0]),
+		    data: formData,
 		    processData: false,
 		    contentType: false,
 		    dataType: "json",
@@ -62,6 +73,9 @@ $(document).ready(function(){
 	// 清缓存
 	$("#func-file-clean-cache form").submit(function(){
 		console.log("Ok")
+		console.log($("#func-file-clean-cache form"))		
+
+		return false;
 		$.ajax({
 		    url: "/zero_admin/mfs/clean_cache",
 		    type: "POST",
